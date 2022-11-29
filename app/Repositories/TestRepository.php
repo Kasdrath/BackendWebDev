@@ -22,8 +22,11 @@ class TestRepository
         $libros = Libro::where('id',$request->id)->with(['genero', 'comentario'])
             ->get();
 
+        //$filtrarlibro = Libro::whereIn('id',[1,5])->get();
+        $entrelibros = Libro::whereBetween('id',[1,4])->get();
+
         return response()->json(
-            ["libros" => $libros],
+            ["libros" => $libros, /*"filtradolibros" => $filtrarlibro*/"entreLibros" =>$entrelibros],
             Response::HTTP_OK
         );
     }

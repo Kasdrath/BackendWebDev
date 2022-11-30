@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Repositories\TestRepository;
 use Illuminate\Http\Request;
 use App\Http\Requests\LibroRequest;
+use App\Http\Requests\GenericRequest;
+use Log;
+use Illuminate\Http\Response;
 
 class TestController extends Controller
 {
@@ -28,5 +31,12 @@ class TestController extends Controller
       public function filtrarLibros(Request $request)
     {
         return $this->testRepo->filtrarLibros($request);
+    }
+
+    public function testing(GenericRequest $request)
+    {
+        log::info($request->all());
+        return response()->json([$request->all()], Response::HTTP_OK);
+
     }
 }

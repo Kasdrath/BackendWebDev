@@ -26,5 +26,6 @@ Route::prefix('/testing')->group(function () use ($router) {
     $router->post('/postTest', [TestController::class, 'guardarLibros']);
     $router->get('/filtrar', [TestController::class, 'filtrarLibros']);
     $router->post('/test', [TestController::class, 'testing']);
+    $router->post('/actualizar', [TestController::class, 'actualizarLibro']);
 
 });

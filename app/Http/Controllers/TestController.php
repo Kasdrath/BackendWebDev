@@ -32,6 +32,17 @@ class TestController extends Controller
     {
         return $this->testRepo->filtrarLibros($request);
     }
+    
+    public function actualizarLibro($request)
+    {
+        return $this->testRepo->actualizarLibro($request);
+    }
+
+    public function eliminarLibro($request)
+    {
+        return $this->testRepo->eliminarLibro($request);
+    }
+
 
     public function testing(GenericRequest $request)
     {

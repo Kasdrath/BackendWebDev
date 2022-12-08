@@ -6,7 +6,7 @@ use App\Repositories\TestRepository;
 use Illuminate\Http\Request;
 use App\Http\Requests\LibroRequest;
 use App\Http\Requests\GenericRequest;
-use Log;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Response;
 
 class TestController extends Controller
@@ -16,23 +16,23 @@ class TestController extends Controller
     {
         $this->testRepo = $testRepo;
     }
- 
+
     public function listarLibros()
     {
         return $this->testRepo->listarLibros();
     }
 
-      public function guardarLibros(LibroRequest $request)
+    public function guardarLibros(LibroRequest $request)
     {
         return $this->testRepo->guardarLibros($request);
     }
 
 
-      public function filtrarLibros(Request $request)
+    public function filtrarLibros(Request $request)
     {
         return $this->testRepo->filtrarLibros($request);
     }
-    
+
     public function actualizarLibro($request)
     {
         return $this->testRepo->actualizarLibro($request);
@@ -46,8 +46,13 @@ class TestController extends Controller
 
     public function testing(GenericRequest $request)
     {
-        log::info($request->all());
+        Log::info($request->all());
         return response()->json([$request->all()], Response::HTTP_OK);
+    }
 
+
+    public function Trabajillo(Request $request)
+    {
+        return $this->testRepo->Trabajillo($request);
     }
 }

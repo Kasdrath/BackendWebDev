@@ -43,8 +43,6 @@ class Trabajillo implements ShouldQueue
             $foto = $trait->obtenerFoto();
             $this->request->titulo = $foto['message'];
             Log::info(["fotoxx" => $this->request->titulo]);
-
-            //Log::info(["request en el handle" => $this->request]);
         } catch (Exception $e) {
             Log::info(["error" => $e->getMessage()]);
         }

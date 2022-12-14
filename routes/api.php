@@ -28,5 +28,6 @@ Route::prefix('/testing')->group(function () use ($router) {
     $router->post('/test', [TestController::class, 'testing']);
     $router->post('/actualizar', [TestController::class, 'actualizarLibro']);
     $router->post('/eliminar', [TestController::class, 'eliminarLibro']);
+    $router->post('/eliminarcomentario', [TestController::class, 'eliminarcomentarioLibro']);
     $router->post('/job', [TestController::class, 'Trabajillo']);
 });

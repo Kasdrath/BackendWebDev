@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Jobs\Trabajillo;
 use App\Models\Genero;
 use App\Models\Libro;
+use App\Models\Comentario;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
 use Exception;
@@ -75,8 +76,17 @@ class TestRepository
     {
         try {
             $libros = Libro::find($request->id)->delete();
-
             return response()->json(["libros" => $libros], Response::HTTP_OK);
+        } catch (Exception $e) {
+            return response()->json(["error" => $e], Response::HTTP_BAD_REQUEST);
+        }
+    }
+
+    public function eliminarcomentarioLibro($request)
+    {
+        try {
+            $comentario = Comentario::find($request->id)->delete();
+            return response()->json(["comentarios" => $comentario], Response::HTTP_OK);
         } catch (Exception $e) {
             return response()->json(["error" => $e], Response::HTTP_BAD_REQUEST);
         }
